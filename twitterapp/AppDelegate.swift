@@ -19,11 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
     
-    if User.currentUser != nil {
-//      println("User is already logged in: \(User.currentUser!.name)")
-      var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UINavigationController
-      window?.rootViewController = vc
-    }
+//    if User.currentUser != nil {
+//      var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UINavigationController
+//      window?.rootViewController = vc
+//    }
     return true
   }
   
