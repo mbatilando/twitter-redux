@@ -13,6 +13,7 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var containerView: UIView!
   
   var menuViewController: MenuViewController!
+  var expanded = false
   
   let centerPanelExpandedOffset: CGFloat = 60
   
@@ -33,7 +34,10 @@ class ContainerViewController: UIViewController {
   
   @IBAction func onPan(sender: AnyObject) {
     UIView.animateWithDuration(1, animations: { () -> Void in
-      self.containerView.frame.origin.x += 35
+      if !self.expanded {
+        self.expanded = true
+        self.containerView.frame.origin.x += 150
+      }
     }) { (completion) -> Void in
       
     }
