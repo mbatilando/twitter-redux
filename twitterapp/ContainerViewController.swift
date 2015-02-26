@@ -45,26 +45,78 @@ extension ContainerViewController: TweetsViewControllerDelegate {
 
   func didPan(sender: UIPanGestureRecognizer) {
     var panOriginX: CGFloat = 0
-    var difference: CGFloat = 0
+    var difference: CGFloat = sender.translationInView(tweetsNavigationController.view).x
 
     if sender.state == UIGestureRecognizerState.Began {
-      panOriginX = sender.locationInView(tweetsNavigationController.view).x
+      if !expanded {
+        panOriginX = sender.locationInView(tweetsNavigationController.view).x
+      }
     } else if sender.state == UIGestureRecognizerState.Changed {
-      difference = sender.translationInView(tweetsNavigationController.view).x
-      switch difference {
-      case 1...225:
-        self.tweetsNavigationController.view.frame.origin.x = difference
-      default:
-        println("hi")
+      
+      if expanded {
+        switch difference {
+        case -225...0:
+            self.tweetsNavigationController.view.frame.origin.x = 225 + difference
+        default:
+          break
+        }
+      } else {
+        switch difference {
+        case 0...225:
+          self.tweetsNavigationController.view.frame.origin.x = difference
+        default:
+          break
+        }
       }
     } else if sender.state == UIGestureRecognizerState.Ended {
-      difference = sender.translationInView(tweetsNavigationController.view).x
-      if difference < 75 {
-        UIView.animateWithDuration(1, animations: { () -> Void in
-          self.tweetsNavigationController.view.frame.origin.x = panOriginX
-        }, completion: { (completion) -> Void in
-        })
+      
+      if expanded {
+        switch 225 + difference {
+        case 0...175:
+          UIView.animateWithDuration(0.5,
+            animations: { () -> Void in
+              self.tweetsNavigationController.view.frame.origin.x = panOriginX
+            },
+            completion: { (completion) -> Void in
+              self.expanded = false
+            }
+          )
+        case 175...999_999:
+          UIView.animateWithDuration(0.5,
+            animations: { () -> Void in
+              self.tweetsNavigationController.view.frame.origin.x = 225
+            },
+            completion: { (completion) -> Void in
+              self.expanded = true
+            }
+          )
+        default:
+          break
+        }
+      } else {
+        switch difference {
+        case 0...175:
+          UIView.animateWithDuration(0.5,
+            animations: { () -> Void in
+              self.tweetsNavigationController.view.frame.origin.x = panOriginX
+            },
+            completion: { (completion) -> Void in
+              self.expanded = false
+            }
+          )
+        case 175...999_999:
+          UIView.animateWithDuration(0.5,
+            animations: { () -> Void in
+              self.tweetsNavigationController.view.frame.origin.x = 225
+            },
+            completion: { (completion) -> Void in
+              self.expanded = true
+            }
+          )
+        default:
+          break
+        }
+        }
       }
-    }
   }
 }
