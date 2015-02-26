@@ -25,9 +25,9 @@ class ContainerViewController: UIViewController {
     addChildViewController(tweetsNavigationController)
     tweetsNavigationController.didMoveToParentViewController(self)
     
-//    tweetsViewController = storyboard?.instantiateViewControllerWithIdentifier("TweetsViewController") as? TweetsViewController
-    var foo = tweetsNavigationController.viewControllers[0] as TweetsViewController
-    foo.tweetsViewControllerDelegate = self
+    // TODO: This is bad
+    let tweetsVC = tweetsNavigationController.viewControllers[0] as TweetsViewController
+    tweetsVC.tweetsViewControllerDelegate = self
     
     menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("menuViewController") as? MenuViewController
     view.insertSubview(menuViewController.view, belowSubview: containerView)
@@ -37,20 +37,34 @@ class ContainerViewController: UIViewController {
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 }
 
 // MARK: - TweetsViewControllerDelegate
 extension ContainerViewController: TweetsViewControllerDelegate {
-  func didPan(sender: AnyObject) {
-    UIView.animateWithDuration(1, animations: { () -> Void in
-      if !self.expanded {
-        self.expanded = true
-        self.tweetsNavigationController.view.frame.origin.x += 150
+
+  func didPan(sender: UIPanGestureRecognizer) {
+    var panOriginX: CGFloat = 0
+    var difference: CGFloat = 0
+
+    if sender.state == UIGestureRecognizerState.Began {
+      panOriginX = sender.locationInView(tweetsNavigationController.view).x
+    } else if sender.state == UIGestureRecognizerState.Changed {
+      difference = sender.translationInView(tweetsNavigationController.view).x
+      switch difference {
+      case 1...225:
+        self.tweetsNavigationController.view.frame.origin.x = difference
+      default:
+        println("hi")
       }
-      }) { (completion) -> Void in
-        
+    } else if sender.state == UIGestureRecognizerState.Ended {
+      difference = sender.translationInView(tweetsNavigationController.view).x
+      if difference < 75 {
+        UIView.animateWithDuration(1, animations: { () -> Void in
+          self.tweetsNavigationController.view.frame.origin.x = panOriginX
+        }, completion: { (completion) -> Void in
+        })
+      }
     }
   }
 }

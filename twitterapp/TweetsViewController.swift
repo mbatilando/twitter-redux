@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TweetsViewControllerDelegate {
-  func didPan(sender: AnyObject)
+  func didPan(sender: UIPanGestureRecognizer)
 }
 
 class TweetsViewController: UIViewController {
@@ -78,12 +78,10 @@ class TweetsViewController: UIViewController {
       composerViewController.tweet = currTweet?
     }
   }
-
   
   @IBAction func onPan(sender: AnyObject) {
-    tweetsViewControllerDelegate?.didPan(sender)    
+    tweetsViewControllerDelegate?.didPan(sender as UIPanGestureRecognizer)
   }
-  
 }
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {

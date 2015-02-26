@@ -227,7 +227,7 @@
                             </mask>
                         </variation>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="ysO-Lm-Lc9" appends="YES" id="xwJ-ss-g9l"/>
+                            <outletCollection property="gestureRecognizers" destination="9bP-cV-Kaz" appends="YES" id="59u-6c-iCF"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="jYE-ox-BME">
@@ -249,9 +249,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1X-f8-2lB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ysO-Lm-Lc9">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="9bP-cV-Kaz">
                     <connections>
-                        <action selector="onPan:" destination="nwa-Q9-BaE" id="6Jf-2n-DUo"/>
+                        <action selector="onPan:" destination="nwa-Q9-BaE" id="uEZ-Dz-4og"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
