@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitterapp/TweetsViewController.swift"
-            timestampString = "446370634.511317"
+            timestampString = "446603031.097433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "userDidFavoriteTweet(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -48,6 +48,82 @@
             startingLineNumber = "59"
             endingLineNumber = "59"
             landmarkName = "setData(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitterapp/ContainerViewController.swift"
+            timestampString = "446603590.01504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "didPan(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "twitterapp.ContainerViewController.didPan (twitterapp.ContainerViewController)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "twitterapp"
+                  urlString = "file:///Users/mari/Documents/twitter-redux/twitterapp/ContainerViewController.swift"
+                  timestampString = "446603942.102205"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "protocol witness for twitterapp.TweetsViewControllerDelegate.didPan &lt;A : twitterapp.TweetsViewControllerDelegate&gt;(inout twitterapp.TweetsViewControllerDelegate.Self)(Swift.AnyObject) -&gt; () in conformance twitterapp.ContainerViewController : twitterapp.TweetsViewControllerDelegate"
+                  moduleName = "twitterapp"
+                  urlString = "file:///Users/mari/Documents/twitter-redux/twitterapp/ContainerViewController.swift"
+                  timestampString = "446603942.102336"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dynamic twitterapp.ContainerViewController.didPan (twitterapp.ContainerViewController)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "twitterapp"
+                  urlString = "file:///Users/mari/Documents/twitter-redux/twitterapp/ContainerViewController.swift"
+                  timestampString = "446603942.102429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitterapp/ContainerViewController.swift"
+            timestampString = "446603955.867319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "didPan(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

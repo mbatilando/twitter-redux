@@ -14,6 +14,7 @@ class ContainerViewController: UIViewController {
   
   var menuViewController: MenuViewController!
   var tweetsNavigationController: UINavigationController!
+  var tweetsViewController: TweetsViewController!
   var expanded = false
   
   override func viewDidLoad() {
@@ -24,8 +25,11 @@ class ContainerViewController: UIViewController {
     addChildViewController(tweetsNavigationController)
     tweetsNavigationController.didMoveToParentViewController(self)
     
-    menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("menuViewController") as? MenuViewController
+//    tweetsViewController = storyboard?.instantiateViewControllerWithIdentifier("TweetsViewController") as? TweetsViewController
+    var foo = tweetsNavigationController.viewControllers[0] as TweetsViewController
+    foo.tweetsViewControllerDelegate = self
     
+    menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("menuViewController") as? MenuViewController
     view.insertSubview(menuViewController.view, belowSubview: containerView)
     addChildViewController(menuViewController)
     menuViewController.didMoveToParentViewController(self)
@@ -35,26 +39,18 @@ class ContainerViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
-  @IBAction func onPan(sender: AnyObject) {
+}
+
+// MARK: - TweetsViewControllerDelegate
+extension ContainerViewController: TweetsViewControllerDelegate {
+  func didPan(sender: AnyObject) {
     UIView.animateWithDuration(1, animations: { () -> Void in
       if !self.expanded {
         self.expanded = true
-        self.containerView.frame.origin.x += 150
+        self.tweetsNavigationController.view.frame.origin.x += 150
       }
-    }) { (completion) -> Void in
-      
+      }) { (completion) -> Void in
+        
     }
   }
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
-  
 }

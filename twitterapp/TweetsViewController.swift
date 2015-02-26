@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol TweetsViewControllerDelegate {
+  func didPan(sender: AnyObject)
+}
+
 class TweetsViewController: UIViewController {
 
   var tweets =  [Tweet]()
   var currTweet: Tweet?
   var rc: UIRefreshControl!
   var tweetCellDelegate: TweetCellDelegate?
+  var tweetsViewControllerDelegate: TweetsViewControllerDelegate?
+
   @IBOutlet weak var tweetsTableView: UITableView!
 
   override func viewDidLoad() {
@@ -72,6 +78,12 @@ class TweetsViewController: UIViewController {
       composerViewController.tweet = currTweet?
     }
   }
+
+  
+  @IBAction func onPan(sender: AnyObject) {
+    tweetsViewControllerDelegate?.didPan(sender)    
+  }
+  
 }
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {

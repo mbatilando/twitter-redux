@@ -56,6 +56,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cyh-Rs-YJT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="91" id="2Yn-AZ-IwP" customClass="TweetCell" customModule="twitterapp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -194,6 +195,7 @@
                                                 <constraint firstItem="qb9-Rm-Hdm" firstAttribute="leading" secondItem="xjb-b8-aV7" secondAttribute="trailing" constant="8" id="zWI-ca-1cn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="favoriteButton" destination="HL9-Am-TBQ" id="9N0-Pu-BNX"/>
                                             <outlet property="favoriteCountLabel" destination="3L2-J4-eM8" id="q3w-TP-DV3"/>
@@ -211,6 +213,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cyh-Rs-YJT" firstAttribute="top" secondItem="c3V-TO-fE8" secondAttribute="top" id="DS5-qr-mXl"/>
                             <constraint firstAttribute="trailing" secondItem="cyh-Rs-YJT" secondAttribute="trailing" id="FJN-II-DWC"/>
@@ -223,6 +226,9 @@
                                 <exclude reference="s2o-px-lSB"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ysO-Lm-Lc9" appends="YES" id="xwJ-ss-g9l"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="jYE-ox-BME">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="NBv-u5-epC">
@@ -243,6 +249,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1X-f8-2lB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ysO-Lm-Lc9">
+                    <connections>
+                        <action selector="onPan:" destination="nwa-Q9-BaE" id="6Jf-2n-DUo"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1622" y="1424"/>
         </scene>
