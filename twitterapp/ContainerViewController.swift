@@ -13,12 +13,16 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var containerView: UIView!
   
   var menuViewController: MenuViewController!
+  var tweetsNavigationController: UINavigationController!
   var expanded = false
-  
-  let centerPanelExpandedOffset: CGFloat = 60
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tweetsNavigationController = storyboard?.instantiateViewControllerWithIdentifier("TweetsNavigationController") as? UINavigationController
+    view.addSubview(tweetsNavigationController.view)
+    addChildViewController(tweetsNavigationController)
+    tweetsNavigationController.didMoveToParentViewController(self)
     
     menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("menuViewController") as? MenuViewController
     
