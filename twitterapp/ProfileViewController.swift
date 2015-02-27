@@ -50,8 +50,7 @@ class ProfileViewController: UIViewController {
     
     
     // TODO: Refactor for multiple users
-    user = User.currentUser!
-    let params = [ "user_id": user!.screenName! ]
+    let params = [ "screen_name": user!.screenName! ]
     TwitterClient.sharedInstance.userTimelineWithParams(params, completion: { (tweets, error) -> () in
       if error == nil {
         self.tweets = tweets!
@@ -61,7 +60,7 @@ class ProfileViewController: UIViewController {
       }
     })
     
-    if User.currentUser != nil {
+    if user != nil {
       setupProfile()
     }
   }

@@ -12,6 +12,7 @@ protocol TweetCellDelegate {
   func userDidReplyToTweet(tweet: Tweet)
   func userDidFavoriteTweet(tweet: Tweet)
   func userDidRetweetTweet(tweet: Tweet)
+  func userDidTapImageProfile(sender: UITapGestureRecognizer, user: User)
 }
 
 class TweetCell: UITableViewCell {
@@ -25,6 +26,8 @@ class TweetCell: UITableViewCell {
   @IBOutlet weak var favoriteCountLabel: UILabel!
   @IBOutlet weak var retweetButton: UIButton!
   @IBOutlet weak var favoriteButton: UIButton!
+  
+  var profileImageTapRecognizer: UITapGestureRecognizer?
   
   var tweet: Tweet? {
     didSet {
@@ -83,12 +86,18 @@ class TweetCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    
+    profileImageTapRecognizer = UITapGestureRecognizer(target: self, action: "handleProfileImageTap:")
+    profileImageTapRecognizer?.numberOfTapsRequired = 1
+    profilePicImageView.addGestureRecognizer(profileImageTapRecognizer!)
+    profilePicImageView.userInteractionEnabled = true
   }
   
   override func setSelected(selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
+  }
+  
+  func handleProfileImageTap (sender: AnyObject) {
+    delegate?.userDidTapImageProfile(sender as UITapGestureRecognizer, user: tweet!.user!)
   }
 }

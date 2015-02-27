@@ -36,7 +36,9 @@ class User: NSObject {
     tagline = dictionary["description"] as? String
     location = dictionary["location"] as String
     id = dictionary["id"] as Int
-    bannerImgURL = NSURL(string: dictionary["profile_banner_url"] as String + "/600x200")
+    if dictionary["profile_banner_url"] != nil {
+        bannerImgURL = NSURL(string: dictionary["profile_banner_url"] as String + "/600x200")
+    }
     tweetCount = dictionary["statuses_count"] as Int
     followerCount = dictionary["friends_count"] as Int
     followingCount = dictionary["following"] as Int

@@ -10,6 +10,7 @@ import UIKit
 
 protocol TweetsViewControllerDelegate {
   func didPan(sender: UIPanGestureRecognizer)
+  func didTapImg(sender: UITapGestureRecognizer, user: User)
 }
 
 class TweetsViewController: UIViewController {
@@ -118,6 +119,10 @@ extension TweetsViewController: TweetCellDelegate {
         println("Retweet Success")
       }
     })
+  }
+  
+  func userDidTapImageProfile(sender: UITapGestureRecognizer, user: User) {
+    tweetsViewControllerDelegate?.didTapImg(sender, user: user)
   }
 }
 

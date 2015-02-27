@@ -15,6 +15,7 @@ class ContainerViewController: UIViewController {
   var menuViewController: MenuViewController!
   var tweetsNavigationController: UINavigationController!
   var tweetsViewController: TweetsViewController!
+  var profileViewController: ProfileViewController!
   var expanded = false
   
   override func viewDidLoad() {
@@ -33,6 +34,9 @@ class ContainerViewController: UIViewController {
     view.insertSubview(menuViewController.view, belowSubview: tweetsNavigationController.view)
     addChildViewController(menuViewController)
     menuViewController.didMoveToParentViewController(self)
+    
+    profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
+    addChildViewController(profileViewController)
   }
   
   override func didReceiveMemoryWarning() {
@@ -42,6 +46,12 @@ class ContainerViewController: UIViewController {
 
 // MARK: - TweetsViewControllerDelegate
 extension ContainerViewController: TweetsViewControllerDelegate {
+  
+  func didTapImg(sender: UITapGestureRecognizer,  user: User) {
+    profileViewController.user = user
+    view.insertSubview(profileViewController.view, aboveSubview: tweetsNavigationController.view)
+    profileViewController.didMoveToParentViewController(self)
+  }
 
   func didPan(sender: UIPanGestureRecognizer) {
     var panOriginX: CGFloat = 0
