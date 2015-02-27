@@ -30,7 +30,7 @@ class ContainerViewController: UIViewController {
     tweetsVC.tweetsViewControllerDelegate = self
     
     menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("menuViewController") as? MenuViewController
-    view.insertSubview(menuViewController.view, belowSubview: containerView)
+    view.insertSubview(menuViewController.view, belowSubview: tweetsNavigationController.view)
     addChildViewController(menuViewController)
     menuViewController.didMoveToParentViewController(self)
   }
