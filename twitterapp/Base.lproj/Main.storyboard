@@ -373,25 +373,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I think I'm cool" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPg-9S-HOm">
-                                        <rect key="frame" x="8" y="302" width="92" height="17"/>
+                                        <rect key="frame" x="8" y="303" width="92" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="0.21176470589999999" green="0.23137254900000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bay Area, CA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-e5-zHR">
-                                        <rect key="frame" x="8" y="336" width="84" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bay Area, CA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-e5-zHR">
+                                        <rect key="frame" x="8" y="335" width="84" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="0.21176470589999999" green="0.23137254900000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="maribatilando.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptg-lb-qUI">
-                                        <rect key="frame" x="108" y="336" width="117" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maribatilando.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptg-lb-qUI">
+                                        <rect key="frame" x="108" y="335" width="117" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZv-Va-MLv">
-                                        <rect key="frame" x="0.0" y="359" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="360" width="600" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXD-6L-9As">
                                                 <rect key="frame" x="8" y="7" width="24" height="17"/>
@@ -406,25 +406,25 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3W-r0-GqU">
-                                                <rect key="frame" x="110" y="7" width="16" height="17"/>
+                                                <rect key="frame" x="111" y="7" width="16" height="17"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOWERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjq-tq-eP4">
-                                                <rect key="frame" x="129" y="7" width="79" height="16"/>
+                                                <rect key="frame" x="130" y="8" width="79" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="89" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIi-aw-yha">
-                                                <rect key="frame" x="232" y="7" width="16" height="17"/>
+                                                <rect key="frame" x="233" y="7" width="16" height="17"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOWING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwv-dc-PwN">
-                                                <rect key="frame" x="252" y="7" width="77" height="16"/>
+                                                <rect key="frame" x="253" y="8" width="77" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -448,7 +448,7 @@
                                         </constraints>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-y9-hEn">
-                                        <rect key="frame" x="8" y="397" width="584" height="29"/>
+                                        <rect key="frame" x="8" y="398" width="584" height="29"/>
                                         <segments>
                                             <segment title="Tweets"/>
                                             <segment title="Media"/>
@@ -457,7 +457,7 @@
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-aN-ouY">
-                                        <rect key="frame" x="0.0" y="433" width="600" height="300"/>
+                                        <rect key="frame" x="0.0" y="434" width="600" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="CWQ-vd-reP"/>
@@ -638,6 +638,7 @@
                                     <constraint firstAttribute="trailing" secondItem="NZv-Va-MLv" secondAttribute="trailing" id="Rkt-5W-wVN"/>
                                     <constraint firstAttribute="trailing" secondItem="r5o-y9-hEn" secondAttribute="trailing" constant="8" id="SUV-2q-VjO"/>
                                     <constraint firstAttribute="centerX" secondItem="uSP-zI-l5J" secondAttribute="centerX" id="Sbe-er-EZE"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XPg-9S-HOm" secondAttribute="trailing" constant="8" id="TcQ-cp-ati"/>
                                     <constraint firstItem="Ptg-lb-qUI" firstAttribute="centerY" secondItem="ZVf-e5-zHR" secondAttribute="centerY" id="VwV-Df-Zul"/>
                                     <constraint firstItem="d4x-GV-2a1" firstAttribute="leading" secondItem="vge-9T-Unc" secondAttribute="leading" constant="8" id="X3c-TU-6Z4"/>
                                     <constraint firstItem="NZv-Va-MLv" firstAttribute="top" secondItem="Ptg-lb-qUI" secondAttribute="bottom" constant="8" id="czl-Up-rss"/>

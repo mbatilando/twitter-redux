@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController {
     tweetsCountLabel.text = "\(user!.tweetCount)"
     followerCount.text = "\(user!.followerCount)"
     followingCountLabel.text = "\(user!.followingCount)"
-    
+    websiteLabel.text = user!.descURL
   }
   
   override func didReceiveMemoryWarning() {

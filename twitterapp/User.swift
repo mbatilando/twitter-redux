@@ -26,6 +26,7 @@ class User: NSObject {
   var tweetCount: Int
   var followerCount: Int
   var followingCount: Int
+  var descURL: String?
   
   init(dictionary: NSDictionary) {
     self.dictionary = dictionary
@@ -38,7 +39,11 @@ class User: NSObject {
     bannerImgURL = NSURL(string: dictionary["profile_banner_url"] as String + "/600x200")
     tweetCount = dictionary["statuses_count"] as Int
     followerCount = dictionary["friends_count"] as Int
-    followingCount = dictionary["following"] as Int    
+    followingCount = dictionary["following"] as Int
+    if dictionary["urls"] != nil {
+      let urlsArr = dictionary["urls"] as NSArray
+      descURL = urlsArr[0] as String
+    }
   }
   
   func logout() {
