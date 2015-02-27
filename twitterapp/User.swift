@@ -19,14 +19,26 @@ class User: NSObject {
   var screenName: String?
   var profileImgURL: NSURL?
   var tagline: String?
+  var location: String
   var dictionary: NSDictionary
+  var id: Int
+  var bannerImgURL: NSURL?
+  var tweetCount: Int
+  var followerCount: Int
+  var followingCount: Int
   
   init(dictionary: NSDictionary) {
     self.dictionary = dictionary
     name = dictionary["name"] as? String
     screenName = "@" + (dictionary["screen_name"] as String)
-    profileImgURL = NSURL(string: dictionary["profile_image_url"] as String)
+    profileImgURL = NSURL(string: dictionary["profile_image_url"] as String + "_bigger")
     tagline = dictionary["description"] as? String
+    location = dictionary["location"] as String
+    id = dictionary["id"] as Int
+    bannerImgURL = NSURL(string: dictionary["profile_banner_url"] as String + "/600x200")
+    tweetCount = dictionary["statuses_count"] as Int
+    followerCount = dictionary["friends_count"] as Int
+    followingCount = dictionary["following"] as Int    
   }
   
   func logout() {

@@ -28,27 +28,72 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var followingCountLabel: UILabel!
   @IBOutlet weak var tweetsTableView: UITableView!
   
+  var tweets = [Tweet]()
+  var user: User?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    tweetsTableView.delegate = self
+    tweetsTableView.dataSource = self
+    tweetsTableView.rowHeight = UITableViewAutomaticDimension
+    tweetsTableView.estimatedRowHeight = 80
+    
+    profileImageView.layer.cornerRadius = 5.0
+    profileImageView.clipsToBounds = true
+    profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
+    profileImageView.layer.borderWidth = 2.5
+    
+    editProfileButton.layer.borderWidth = 1
+    editProfileButton.layer.borderColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0).CGColor
+    editProfileButton.layer.cornerRadius = 5.0
+    
+    
+    // TODO: Refactor for multiple users
+    user = User.currentUser!
+    let params = [ "user_id": user!.screenName! ]
+    TwitterClient.sharedInstance.userTimelineWithParams(params, completion: { (tweets, error) -> () in
+      if error == nil {
+        self.tweets = tweets!
+        self.tweetsTableView.reloadData()
+      } else {
+        println(error)
+      }
+    })
+    
+    if User.currentUser != nil {
+      setupProfile()
+    }
+  }
+  
+  func setupProfile () {
+    profileImageView.setImageWithURL(user!.profileImgURL!)
+    bannerImageView.setImageWithURL(user!.bannerImgURL)
+    nameLabel.text = user!.name
+    twitterHandleLabel.text = user!.screenName
+    profileDescriptionLabel.text = user!.tagline
+    locationLabel.text = user!.location
+    tweetsCountLabel.text = "\(user!.tweetCount)"
+    followerCount.text = "\(user!.followerCount)"
+    followingCountLabel.text = "\(user!.followingCount)"
+    
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  }
+}
+
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tweetsTableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCell
+    cell.tweet = tweets[indexPath.row]
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
+    return cell
   }
   
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.tweets.count
   }
-  */
-  
 }
