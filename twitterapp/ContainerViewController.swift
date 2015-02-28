@@ -17,14 +17,18 @@ class ContainerViewController: UIViewController {
   var tweetsViewController: TweetsViewController!
   var profileViewController: ProfileViewController!
   var expanded = false
+  var currentCenterView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "centerViewDidPan", name: "centerDidPan:", object: nil)
     
     tweetsNavigationController = storyboard?.instantiateViewControllerWithIdentifier("TweetsNavigationController") as? UINavigationController
     view.addSubview(tweetsNavigationController.view)
     addChildViewController(tweetsNavigationController)
     tweetsNavigationController.didMoveToParentViewController(self)
+    currentCenterView = tweetsNavigationController.view
     
     // TODO: This is bad
     let tweetsVC = tweetsNavigationController.viewControllers[0] as TweetsViewController
@@ -42,6 +46,10 @@ class ContainerViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
+  
+  func centerDidPan(sender: AnyObject) {
+    println("hi")
+  }
 }
 
 // MARK: - TweetsViewControllerDelegate
@@ -51,29 +59,30 @@ extension ContainerViewController: TweetsViewControllerDelegate {
     profileViewController.user = user
     view.insertSubview(profileViewController.view, aboveSubview: tweetsNavigationController.view)
     profileViewController.didMoveToParentViewController(self)
+    currentCenterView = profileViewController.view
   }
 
   func didPan(sender: UIPanGestureRecognizer) {
     var panOriginX: CGFloat = 0
-    var difference: CGFloat = sender.translationInView(tweetsNavigationController.view).x
+    var difference: CGFloat = sender.translationInView(currentCenterView).x
 
     if sender.state == UIGestureRecognizerState.Began {
       if !expanded {
-        panOriginX = sender.locationInView(tweetsNavigationController.view).x
+        panOriginX = sender.locationInView(currentCenterView).x
       }
     } else if sender.state == UIGestureRecognizerState.Changed {
       
       if expanded {
         switch difference {
         case -225...0:
-            self.tweetsNavigationController.view.frame.origin.x = 225 + difference
+            self.currentCenterView.frame.origin.x = 225 + difference
         default:
           break
         }
       } else {
         switch difference {
         case 0...225:
-          self.tweetsNavigationController.view.frame.origin.x = difference
+          self.currentCenterView.frame.origin.x = difference
         default:
           break
         }
@@ -85,7 +94,7 @@ extension ContainerViewController: TweetsViewControllerDelegate {
         case 0...175:
           UIView.animateWithDuration(0.5,
             animations: { () -> Void in
-              self.tweetsNavigationController.view.frame.origin.x = panOriginX
+              self.currentCenterView.frame.origin.x = panOriginX
             },
             completion: { (completion) -> Void in
               self.expanded = false
@@ -94,7 +103,7 @@ extension ContainerViewController: TweetsViewControllerDelegate {
         case 175...999_999:
           UIView.animateWithDuration(0.5,
             animations: { () -> Void in
-              self.tweetsNavigationController.view.frame.origin.x = 225
+              self.currentCenterView.frame.origin.x = 225
             },
             completion: { (completion) -> Void in
               self.expanded = true
@@ -108,7 +117,7 @@ extension ContainerViewController: TweetsViewControllerDelegate {
         case 0...175:
           UIView.animateWithDuration(0.5,
             animations: { () -> Void in
-              self.tweetsNavigationController.view.frame.origin.x = panOriginX
+              self.currentCenterView.frame.origin.x = panOriginX
             },
             completion: { (completion) -> Void in
               self.expanded = false
@@ -117,7 +126,7 @@ extension ContainerViewController: TweetsViewControllerDelegate {
         case 175...999_999:
           UIView.animateWithDuration(0.5,
             animations: { () -> Void in
-              self.tweetsNavigationController.view.frame.origin.x = 225
+              self.currentCenterView.frame.origin.x = 225
             },
             completion: { (completion) -> Void in
               self.expanded = true

@@ -1112,7 +1112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUZ-ub-sfj">
-                                <rect key="frame" x="400" y="59" width="200" height="541"/>
+                                <rect key="frame" x="0.0" y="59" width="200" height="541"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mari" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKe-wd-UV8">
                                         <rect key="frame" x="98" y="98" width="34" height="21"/>
@@ -1140,8 +1140,16 @@
                         <constraints>
                             <constraint firstItem="TUZ-ub-sfj" firstAttribute="top" secondItem="aJL-5l-gEH" secondAttribute="bottom" constant="39" id="85m-pa-Kbv"/>
                             <constraint firstAttribute="trailing" secondItem="TUZ-ub-sfj" secondAttribute="trailing" id="CPQ-YF-UbH"/>
+                            <constraint firstItem="TUZ-ub-sfj" firstAttribute="leading" secondItem="ku7-14-yX5" secondAttribute="leading" id="JFc-d6-J5X"/>
+                            <constraint firstItem="TUZ-ub-sfj" firstAttribute="leading" secondItem="ku7-14-yX5" secondAttribute="leadingMargin" id="Pcx-4x-vhV"/>
                             <constraint firstItem="MmW-es-TC2" firstAttribute="top" secondItem="TUZ-ub-sfj" secondAttribute="bottom" id="i2C-Id-FcN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CPQ-YF-UbH"/>
+                                <exclude reference="Pcx-4x-vhV"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dr9-c0-9L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
