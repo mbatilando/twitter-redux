@@ -9,7 +9,6 @@
 import UIKit
 
 protocol TweetsViewControllerDelegate {
-  func didPan(sender: UIPanGestureRecognizer)
   func didTapImg(sender: UITapGestureRecognizer, user: User)
 }
 
@@ -78,10 +77,6 @@ class TweetsViewController: UIViewController {
       var composerViewController = segue.destinationViewController as ComposerViewController
       composerViewController.tweet = currTweet?
     }
-  }
-  
-  @IBAction func onPan(sender: AnyObject) {
-    tweetsViewControllerDelegate?.didPan(sender as UIPanGestureRecognizer)
   }
 }
 

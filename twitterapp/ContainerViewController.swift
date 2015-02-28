@@ -22,8 +22,6 @@ class ContainerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "centerViewDidPan", name: "centerDidPan:", object: nil)
-    
     tweetsNavigationController = storyboard?.instantiateViewControllerWithIdentifier("TweetsNavigationController") as? UINavigationController
     view.addSubview(tweetsNavigationController.view)
     addChildViewController(tweetsNavigationController)
@@ -47,25 +45,10 @@ class ContainerViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  func centerDidPan(sender: AnyObject) {
-    println("hi")
-  }
-}
-
-// MARK: - TweetsViewControllerDelegate
-extension ContainerViewController: TweetsViewControllerDelegate {
-  
-  func didTapImg(sender: UITapGestureRecognizer,  user: User) {
-    profileViewController.user = user
-    view.insertSubview(profileViewController.view, aboveSubview: tweetsNavigationController.view)
-    profileViewController.didMoveToParentViewController(self)
-    currentCenterView = profileViewController.view
-  }
-
-  func didPan(sender: UIPanGestureRecognizer) {
+  @IBAction func onPan(sender: UIPanGestureRecognizer) {
     var panOriginX: CGFloat = 0
     var difference: CGFloat = sender.translationInView(currentCenterView).x
-
+    
     if sender.state == UIGestureRecognizerState.Began {
       if !expanded {
         panOriginX = sender.locationInView(currentCenterView).x
@@ -75,7 +58,7 @@ extension ContainerViewController: TweetsViewControllerDelegate {
       if expanded {
         switch difference {
         case -225...0:
-            self.currentCenterView.frame.origin.x = 225 + difference
+          self.currentCenterView.frame.origin.x = 225 + difference
         default:
           break
         }
@@ -135,7 +118,18 @@ extension ContainerViewController: TweetsViewControllerDelegate {
         default:
           break
         }
-        }
       }
+    }
+  }
+}
+
+// MARK: - TweetsViewControllerDelegate
+extension ContainerViewController: TweetsViewControllerDelegate {
+  
+  func didTapImg(sender: UITapGestureRecognizer,  user: User) {
+    profileViewController.user = user
+    view.insertSubview(profileViewController.view, aboveSubview: tweetsNavigationController.view)
+    profileViewController.didMoveToParentViewController(self)
+    currentCenterView = profileViewController.view
   }
 }
