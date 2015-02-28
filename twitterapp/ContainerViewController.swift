@@ -128,21 +128,46 @@ class ContainerViewController: UIViewController {
 extension ContainerViewController: TweetsViewControllerDelegate {
   
   func didTapImg(sender: UITapGestureRecognizer,  user: User) {
+
     view.insertSubview(currentCenterView, belowSubview: menuViewController.view)
     profileViewController.user = user
-    view.insertSubview(profileViewController.view, aboveSubview: menuViewController.view)
-    profileViewController.didMoveToParentViewController(self)
-    currentCenterView = profileViewController.view
+    
+    UIView.transitionWithView(view, duration: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+      self.view.insertSubview(self.profileViewController.view, aboveSubview: self.menuViewController.view)
+    }) { (completion) -> Void in
+      self.profileViewController.viewDidAppear(true)
+      self.currentCenterView = self.profileViewController.view
+    }
   }
 }
 
 extension ContainerViewController: MenuViewControllerDelegate {
   func didSelectOption(option: String) {
     
-//    switch option {
-//    case "":
-//      
-//    }
+    switch option {
+    case "Home":
+      UIView.animateWithDuration(0.5, animations: { () -> Void in
+        self.currentCenterView.frame.origin.x = 0
+      }, completion: { (completion) -> Void in
+        self.view.insertSubview(self.currentCenterView, belowSubview: self.menuViewController.view)
+        self.view.insertSubview(self.tweetsNavigationController.view, aboveSubview: self.menuViewController.view)
+        self.currentCenterView = self.tweetsNavigationController.view
+      })
+    case "Profile":
+      UIView.animateWithDuration(0.5, animations: { () -> Void in
+        self.currentCenterView.frame.origin.x = 0
+        }, completion: { (completion) -> Void in
+          self.view.insertSubview(self.currentCenterView, belowSubview: self.menuViewController.view)
+          self.profileViewController.user = User.currentUser!
+          self.view.insertSubview(self.profileViewController.view, aboveSubview: self.menuViewController.view)
+          self.currentCenterView = self.profileViewController.view
+          self.profileViewController.viewDidAppear(true)
+      })
+    case "Mention":
+      break
+    default:
+      break
+    }
     
     UIView.animateWithDuration(0.5,
       animations: { () -> Void in

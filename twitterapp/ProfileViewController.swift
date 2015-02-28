@@ -65,6 +65,19 @@ class ProfileViewController: UIViewController {
     }
   }
   
+  override func viewDidAppear(animated: Bool) {
+    setupProfile()
+    let params = [ "screen_name": user!.screenName! ]
+    TwitterClient.sharedInstance.userTimelineWithParams(params, completion: { (tweets, error) -> () in
+      if error == nil {
+        self.tweets = tweets!
+        self.tweetsTableView.reloadData()
+      } else {
+        println(error)
+      }
+    })
+  }
+  
   func setupProfile () {
     profileImageView.setImageWithURL(user!.profileImgURL!)
     bannerImageView.setImageWithURL(user!.bannerImgURL)
