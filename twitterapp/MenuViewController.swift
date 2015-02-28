@@ -20,7 +20,11 @@ class MenuViewController: UIViewController {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
-    // Do any additional setup after loading the view.
+    
+    profileImageView.setImageWithURL(User.currentUser?.profileImgURL!)
+    nameLabel.text = User.currentUser?.name
+    screenNameLabel.text = User.currentUser?.screenName
+    locationLabel.text = User.currentUser?.location
   }
   
   override func didReceiveMemoryWarning() {
@@ -30,7 +34,7 @@ class MenuViewController: UIViewController {
   
   
   /*
-  // MARK: - Navigation
+  // MARK: - Navigation   
   
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
