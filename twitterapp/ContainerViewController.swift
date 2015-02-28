@@ -33,6 +33,7 @@ class ContainerViewController: UIViewController {
     tweetsVC.tweetsViewControllerDelegate = self
     
     menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("menuViewController") as? MenuViewController
+    menuViewController.delegate = self
     view.insertSubview(menuViewController.view, belowSubview: tweetsNavigationController.view)
     addChildViewController(menuViewController)
     menuViewController.didMoveToParentViewController(self)
@@ -132,5 +133,24 @@ extension ContainerViewController: TweetsViewControllerDelegate {
     view.insertSubview(profileViewController.view, aboveSubview: menuViewController.view)
     profileViewController.didMoveToParentViewController(self)
     currentCenterView = profileViewController.view
+  }
+}
+
+extension ContainerViewController: MenuViewControllerDelegate {
+  func didSelectOption(option: String) {
+    
+//    switch option {
+//    case "":
+//      
+//    }
+    
+    UIView.animateWithDuration(0.5,
+      animations: { () -> Void in
+        self.currentCenterView.frame.origin.x = 0
+      },
+      completion: { (completion) -> Void in
+        self.expanded = false
+      }
+    )
   }
 }
