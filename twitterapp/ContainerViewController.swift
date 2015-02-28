@@ -127,8 +127,9 @@ class ContainerViewController: UIViewController {
 extension ContainerViewController: TweetsViewControllerDelegate {
   
   func didTapImg(sender: UITapGestureRecognizer,  user: User) {
+    view.insertSubview(currentCenterView, belowSubview: menuViewController.view)
     profileViewController.user = user
-    view.insertSubview(profileViewController.view, aboveSubview: tweetsNavigationController.view)
+    view.insertSubview(profileViewController.view, aboveSubview: menuViewController.view)
     profileViewController.didMoveToParentViewController(self)
     currentCenterView = profileViewController.view
   }
