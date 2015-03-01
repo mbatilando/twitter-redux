@@ -10,14 +10,15 @@ import UIKit
 
 class ContainerViewController: UIViewController {
   
-  @IBOutlet weak var containerView: UIView!
+  @IBOutlet private weak var containerView: UIView!
   
-  var menuViewController: MenuViewController!
-  var tweetsNavigationController: UINavigationController!
-  var tweetsViewController: TweetsViewController!
-  var profileViewController: ProfileViewController!
-  var expanded = false
-  var currentCenterView: UIView!
+  private var menuViewController: MenuViewController!
+  private var tweetsNavigationController: UINavigationController!
+  private var tweetsViewController: TweetsViewController!
+  private var profileViewController: ProfileViewController!
+  private var mentionsViewController: MentionsViewController!
+  private var expanded = false
+  private var currentCenterView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,6 +41,9 @@ class ContainerViewController: UIViewController {
     
     profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileViewController") as? ProfileViewController
     addChildViewController(profileViewController)
+    
+    mentionsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MentionsViewController") as? MentionsViewController
+    addChildViewController(mentionsViewController)
   }
   
   override func didReceiveMemoryWarning() {
@@ -163,8 +167,14 @@ extension ContainerViewController: MenuViewControllerDelegate {
           self.currentCenterView = self.profileViewController.view
           self.profileViewController.viewDidAppear(true)
       })
-    case "Mention":
-      break
+    case "Mentions":
+      UIView.animateWithDuration(0.5, animations: { () -> Void in
+        self.currentCenterView.frame.origin.x = 0
+        }, completion: { (completion) -> Void in
+          self.view.insertSubview(self.currentCenterView, belowSubview: self.menuViewController.view)
+          self.view.insertSubview(self.mentionsViewController.view, aboveSubview: self.menuViewController.view)
+          self.currentCenterView = self.mentionsViewController.view
+      })
     default:
       break
     }
