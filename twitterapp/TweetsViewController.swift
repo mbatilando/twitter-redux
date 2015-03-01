@@ -14,9 +14,9 @@ protocol TweetsViewControllerDelegate {
 
 class TweetsViewController: UIViewController {
 
-  var tweets =  [Tweet]()
+  private var tweets =  [Tweet]()
   var currTweet: Tweet?
-  var rc: UIRefreshControl!
+  private var rc: UIRefreshControl!
   var tweetCellDelegate: TweetCellDelegate?
   var tweetsViewControllerDelegate: TweetsViewControllerDelegate?
 

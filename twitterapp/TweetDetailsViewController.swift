@@ -15,18 +15,18 @@ protocol TweetsFeedDelegate {
 
 class TweetDetailsViewController: UIViewController {
 
-  @IBOutlet weak var userRealNameLabel: UILabel!
-  @IBOutlet weak var userTwitterHandleLabel: UILabel!
-  @IBOutlet weak var userProfileImageView: UIImageView!
-  @IBOutlet weak var tweetContentLabel: UILabel!
-  @IBOutlet weak var dateTimeLabel: UILabel!
-  @IBOutlet weak var numRetweetsLabel: UILabel!
-  @IBOutlet weak var numFavoritesLabel: UILabel!
-  @IBOutlet weak var favoriteButton: UIButton!
-  @IBOutlet weak var retweetButton: UIButton!
-  @IBOutlet weak var replyButton: NSLayoutConstraint!
-  @IBOutlet weak var favoriteDescLabel: UILabel!
-  @IBOutlet weak var retweetsDescLabel: UILabel!
+  @IBOutlet private weak var userRealNameLabel: UILabel!
+  @IBOutlet private weak var userTwitterHandleLabel: UILabel!
+  @IBOutlet private weak var userProfileImageView: UIImageView!
+  @IBOutlet private weak var tweetContentLabel: UILabel!
+  @IBOutlet private weak var dateTimeLabel: UILabel!
+  @IBOutlet private weak var numRetweetsLabel: UILabel!
+  @IBOutlet private weak var numFavoritesLabel: UILabel!
+  @IBOutlet private weak var favoriteButton: UIButton!
+  @IBOutlet private weak var retweetButton: UIButton!
+  @IBOutlet private weak var replyButton: NSLayoutConstraint!
+  @IBOutlet private weak var favoriteDescLabel: UILabel!
+  @IBOutlet private weak var retweetsDescLabel: UILabel!
   
   var tweet: Tweet?
   var delegate: TweetsFeedDelegate?

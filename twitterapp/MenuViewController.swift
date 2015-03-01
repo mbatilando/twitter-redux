@@ -14,13 +14,13 @@ protocol MenuViewControllerDelegate {
 
 class MenuViewController: UIViewController {
   
-  @IBOutlet weak var profileImageView: UIImageView!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var screenNameLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet private weak var profileImageView: UIImageView!
+  @IBOutlet private weak var nameLabel: UILabel!
+  @IBOutlet private weak var screenNameLabel: UILabel!
+  @IBOutlet private weak var locationLabel: UILabel!
+  @IBOutlet private weak var tableView: UITableView!
   
-  var options = ["Home", "Profile", "Mentions"]
+  private var options = ["Home", "Profile", "Mentions"]
   var delegate: MenuViewControllerDelegate?
   
   override func viewDidLoad() {

@@ -10,25 +10,25 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var bannerImageView: UIImageView!
-  @IBOutlet weak var searchButton: UIButton!
-  @IBOutlet weak var composeButton: UIButton!
-  @IBOutlet weak var profileImageView: UIImageView!
-  @IBOutlet weak var settingsButton: UIButton!
-  @IBOutlet weak var friendsButton: UIButton!
-  @IBOutlet weak var editProfileButton: UIButton!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var twitterHandleLabel: UILabel!
-  @IBOutlet weak var profileDescriptionLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-  @IBOutlet weak var websiteLabel: UILabel!
-  @IBOutlet weak var tweetsCountLabel: UILabel!
-  @IBOutlet weak var followerCount: UILabel!
-  @IBOutlet weak var followingCountLabel: UILabel!
-  @IBOutlet weak var tweetsTableView: UITableView!
+  @IBOutlet private weak var scrollView: UIScrollView!
+  @IBOutlet private weak var bannerImageView: UIImageView!
+  @IBOutlet private weak var searchButton: UIButton!
+  @IBOutlet private weak var composeButton: UIButton!
+  @IBOutlet private weak var profileImageView: UIImageView!
+  @IBOutlet private weak var settingsButton: UIButton!
+  @IBOutlet private weak var friendsButton: UIButton!
+  @IBOutlet private weak var editProfileButton: UIButton!
+  @IBOutlet private weak var nameLabel: UILabel!
+  @IBOutlet private weak var twitterHandleLabel: UILabel!
+  @IBOutlet private weak var profileDescriptionLabel: UILabel!
+  @IBOutlet private weak var locationLabel: UILabel!
+  @IBOutlet private weak var websiteLabel: UILabel!
+  @IBOutlet private weak var tweetsCountLabel: UILabel!
+  @IBOutlet private weak var followerCount: UILabel!
+  @IBOutlet private weak var followingCountLabel: UILabel!
+  @IBOutlet private weak var tweetsTableView: UITableView!
   
-  var tweets = [Tweet]()
+  private var tweets = [Tweet]()
   var user: User?
   
   override func viewDidLoad() {

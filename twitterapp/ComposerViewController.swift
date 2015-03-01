@@ -10,12 +10,12 @@ import UIKit
 
 class ComposerViewController: UIViewController {
   
-  @IBOutlet weak var profileImageView: UIImageView!
-  @IBOutlet weak var userRealNameLabel: UILabel!
-  @IBOutlet weak var twitterHandleLabel: UILabel!
-  @IBOutlet weak var tweetTextView: UITextView!
-  @IBOutlet weak var charCountLabel: UILabel!
-  @IBOutlet weak var tweetButton: UIButton!
+  @IBOutlet private weak var profileImageView: UIImageView!
+  @IBOutlet private weak var userRealNameLabel: UILabel!
+  @IBOutlet private weak var twitterHandleLabel: UILabel!
+  @IBOutlet private weak var tweetTextView: UITextView!
+  @IBOutlet private weak var charCountLabel: UILabel!
+  @IBOutlet private weak var tweetButton: UIButton!
   
   var tweet: Tweet?
   var replyId: Int?
